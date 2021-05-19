@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BitcoinBrawler</string>
+    <string name="title_home">Home</string>
+    <string name="title_stock">Stock</string>
+    <string name="title_store">Store</string>
+    <string name="enter_amount">Amount</string>
+</resources>
