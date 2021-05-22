@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentHomeBinding
-import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -29,7 +29,6 @@ class HomeFragment : Fragment() {
 
         observeViewModel()
 
-        runTimer()
         return root
     }
 
@@ -38,20 +37,8 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun runTimer() {
-        val task: TimerTask = object : TimerTask() {
-            override fun run() {
-                activity?.runOnUiThread {
-                    homeViewModel.updateUser()
-                }
-            }
-        }
-        val timer = Timer()
-        timer.schedule(task, 0, 1000)
-    }
-
     private fun observeViewModel() {
-        homeViewModel.user.observe(viewLifecycleOwner, {
+        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
             with(binding) {
                 balanceBtc.text = "${it.amountBtc} BTC"
                 balanceDollars.text = "${it.amountDollar} $"

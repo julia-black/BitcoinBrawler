@@ -4,4 +4,10 @@
     <string name="title_stock">Stock</string>
     <string name="title_store">Store</string>
     <string name="enter_amount">Amount</string>
+    <string name="buy_btc">Buy bitcoins</string>
+    <string name="sell_btc">Sell bitcoins</string>
+    <string name="amount_error">Enter valid amount</string>
+    <string name="not_enough_btc">Not enough bitcoins</string>
+    <string name="not_enough_dollars">Not enough dollars</string>
+    <string name="success">Success!</string>
 </resources>

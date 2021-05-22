@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/standart_padding"
+    android:paddingHorizontal="@dimen/standart_padding"
+    android:paddingBottom="42dp"
     tools:context=".ui.stock.StockFragment">
 
     <TextView
@@ -22,43 +23,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/enter_amount"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonBuyDollar"
+        app:layout_constraintEnd_toStartOf="@id/buttonSellBtc"
         app:layout_constraintStart_toEndOf="@id/buttonBuyBtc"
         app:layout_constraintTop_toTopOf="@id/buttonBuyBtc" />
+
+    <TextView
+        android:id="@+id/infoAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/standart_padding"
+        app:layout_constraintBottom_toTopOf="@id/amount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="1BTC = 100$" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonBuyBtc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy BTC"
-        app:layout_constraintBottom_toTopOf="@id/buttonSellBtc"
+        android:text="@string/buy_btc"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonSellBtc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELL BTC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonBuyDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buy BTC"
-        app:layout_constraintBottom_toTopOf="@id/buttonSellDollar"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonSellDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SELL BTC"
+        android:text="@string/sell_btc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
