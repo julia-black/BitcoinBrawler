@@ -8,31 +8,6 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/balanceBtc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1000 BTC" />
-
-    <TextView
-        android:id="@+id/velocity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balanceBtc"
-        tools:text="Скорость 0.5 BTC/сек" />
-
-    <TextView
-        android:id="@+id/balanceDollars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="300 $" />
-
-    <TextView
         android:id="@+id/pepe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

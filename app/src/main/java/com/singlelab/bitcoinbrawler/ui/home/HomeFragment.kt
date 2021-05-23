@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentHomeBinding
 import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
-import com.singlelab.bitcoinbrawler.util.roundTo
 
 class HomeFragment : BaseFragment() {
 
@@ -28,7 +27,7 @@ class HomeFragment : BaseFragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        observeViewModel()
+        observeUser()
 
         return root
     }
@@ -38,13 +37,9 @@ class HomeFragment : BaseFragment() {
         _binding = null
     }
 
-    private fun observeViewModel() {
+    private fun observeUser() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
             with(binding) {
-                balanceBtc.text = "${it.amountBtc} BTC"
-                balanceDollars.text = "${(it.amountDollar).roundTo(2)} $"
-                velocity.text = "${it.getAllVelocity()} BTC/sec"
-
                 pepe.text = it.getPepe()
                 drill.text = it.getDrill()
             }

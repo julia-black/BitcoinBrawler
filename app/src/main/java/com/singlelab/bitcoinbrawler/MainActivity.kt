@@ -49,6 +49,18 @@ class MainActivity : AppCompatActivity() {
         runTimerForUser()
 
         runTimerForStock()
+
+        observeLiveData()
+    }
+
+    private fun observeLiveData() {
+        userLiveData.observe(this, {
+            with(binding) {
+                balanceBtc.text = "${it.amountBtc} BTC"
+                balanceDollars.text = "${(it.amountDollar).roundTo(2)} $"
+                velocity.text = "${it.getAllVelocity()} BTC/sec"
+            }
+        })
     }
 
     private fun runTimerForStock() {
