@@ -4,5 +4,7 @@ data class Product(
     val id: Int,
     val name: String,
     val price: Int,
-    val type: ProductType
+    val type: ProductType,
+    val velocityIncBoost: Int? = null,
+    val velocityMultiplyBoost: Double? = null
 )

@@ -9,8 +9,8 @@ class StoreViewModel : ViewModel() {
 
     val products = MutableLiveData<List<Product>>().apply {
         value = listOf(
-            Product(0, "Pepe+", 100, ProductType.PEPE),
-            Product(1, "Drill+", 50, ProductType.DRILL)
+            Product(0, "Pepe+", 100, ProductType.PEPE, 10),
+            Product(1, "Drill+", 50, ProductType.DRILL, 15)
         )
     }
 }

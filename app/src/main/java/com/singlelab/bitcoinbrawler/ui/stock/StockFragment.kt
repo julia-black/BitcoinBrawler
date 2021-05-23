@@ -5,18 +5,16 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.R
 import com.singlelab.bitcoinbrawler.databinding.FragmentStockBinding
 import com.singlelab.bitcoinbrawler.model.exception.BuyingException
-import com.singlelab.bitcoinbrawler.model.exception.ErrorType
+import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
 import com.singlelab.bitcoinbrawler.util.roundTo
 
-class StockFragment : Fragment() {
+class StockFragment : BaseFragment() {
 
     private lateinit var stockViewModel: StockViewModel
     private var _binding: FragmentStockBinding? = null
@@ -136,18 +134,5 @@ class StockFragment : Fragment() {
 
     private fun showEmptyAmountError() {
         showToast(getString(R.string.amount_error))
-    }
-
-    private fun showError(e: BuyingException) {
-        showToast(
-            when (e.errorType) {
-                ErrorType.NOT_ENOUGH_BTC -> getString(R.string.not_enough_btc)
-                ErrorType.NOT_ENOUGH_DOLLARS -> getString(R.string.not_enough_dollars)
-            }
-        )
-    }
-
-    private fun showToast(text: String) {
-        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
     }
 }

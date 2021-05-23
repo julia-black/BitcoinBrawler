@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentHomeBinding
+import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
+import com.singlelab.bitcoinbrawler.util.roundTo
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -41,8 +42,11 @@ class HomeFragment : Fragment() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
             with(binding) {
                 balanceBtc.text = "${it.amountBtc} BTC"
-                balanceDollars.text = "${it.amountDollar} $"
-                velocity.text = "${it.velocity} BTC/sec"
+                balanceDollars.text = "${(it.amountDollar).roundTo(2)} $"
+                velocity.text = "${it.getAllVelocity()} BTC/sec"
+
+                pepe.text = it.getPepe()
+                drill.text = it.getDrill()
             }
         })
     }

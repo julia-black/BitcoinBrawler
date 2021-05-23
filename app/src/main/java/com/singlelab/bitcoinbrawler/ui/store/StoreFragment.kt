@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentStoreBinding
+import com.singlelab.bitcoinbrawler.model.Product
+import com.singlelab.bitcoinbrawler.model.exception.BuyingException
+import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
 import com.singlelab.bitcoinbrawler.ui.store.adapter.ProductsAdapter
 
-class StoreFragment : Fragment() {
+class StoreFragment : BaseFragment() {
 
     private lateinit var storeViewModel: StoreViewModel
     private var _binding: FragmentStoreBinding? = null
@@ -27,22 +31,41 @@ class StoreFragment : Fragment() {
 
         _binding = FragmentStoreBinding.inflate(inflater, container, false)
 
-        observeViewModel()
+        observeUser()
 
         return binding.root
-    }
-
-    private fun observeViewModel() {
-        storeViewModel.products.observe(viewLifecycleOwner, {
-            with(binding.recyclerView) {
-                layoutManager = LinearLayoutManager(context)
-                adapter = ProductsAdapter(it)
-            }
-        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observeUser() {
+        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, { user ->
+            storeViewModel.products.observe(viewLifecycleOwner, { products ->
+                showLoading(false)
+                with(binding.recyclerView) {
+                    layoutManager = LinearLayoutManager(context)
+                    adapter = ProductsAdapter(products, user.products, ::onItemClick)
+                }
+            })
+        })
+    }
+
+    private fun onItemClick(product: Product) {
+        showLoading()
+        with(activity as MainActivity) {
+            try {
+                userLiveData.value?.buyProduct(product)
+            } catch (e: BuyingException) {
+                showLoading(false)
+                showError(e)
+            }
+        }
+    }
+
+    private fun showLoading(isVisible: Boolean = true) {
+        binding.loading.isVisible = isVisible
     }
 }

@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.singlelab.bitcoinbrawler.R
 import com.singlelab.bitcoinbrawler.model.Product
 
-class ProductsAdapter(private val list: List<Product>) :
+class ProductsAdapter(
+    private val products: List<Product>,
+    private val userProducts: List<Product>?,
+    private val onBuyClick: (Product) -> Unit
+) :
     RecyclerView.Adapter<ProductViewHolder>() {
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = products.size
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -19,8 +23,14 @@ class ProductsAdapter(private val list: List<Product>) :
     }
 
     override fun onBindViewHolder(viewHolder: ProductViewHolder, position: Int) {
-        val product = list[position]
-        viewHolder.nameTextView.text = product.name
-        viewHolder.priceTextView.text = product.price.toString()
+        val product = products[position]
+        with(viewHolder) {
+            nameTextView.text = product.name
+            priceTextView.text = product.price.toString()
+            buyButton.setOnClickListener {
+                onBuyClick.invoke(product)
+            }
+            buyButton.isEnabled = !(!userProducts.isNullOrEmpty() && userProducts.contains(product))
+        }
     }
 }

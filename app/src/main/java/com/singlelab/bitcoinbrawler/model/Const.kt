@@ -7,4 +7,7 @@ object Const {
 
     const val RANGE = 1.0
     const val COUNT_PRICES = 10
+
+    const val DRILL_DEFAULT = "Drill"
+    const val PEPE_DEFAULT = "Pepe"
 }
