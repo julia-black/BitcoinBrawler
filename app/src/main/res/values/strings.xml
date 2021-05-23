@@ -10,4 +10,5 @@
     <string name="not_enough_btc">Not enough bitcoins</string>
     <string name="not_enough_dollars">Not enough dollars</string>
     <string name="success">Success!</string>
+    <string name="price_btc">Price BTC, $</string>
 </resources>
