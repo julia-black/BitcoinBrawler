@@ -61,10 +61,10 @@ data class User(
         return this
     }
 
-    fun getPepe(): String {
+    fun getPepe(): Product? {
         return products.findLast {
             it.type == ProductType.PEPE
-        }?.name ?: Const.PEPE_DEFAULT
+        }
     }
 
     fun getDrill(): String {

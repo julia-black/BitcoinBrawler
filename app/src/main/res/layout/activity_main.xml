@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navView"
@@ -25,33 +26,58 @@
         android:padding="@dimen/standart_padding"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/bitcoin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/bitcoin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/balanceBtc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="1000 BTC" />
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/sigmar_one"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/bitcoin"
+            app:layout_constraintStart_toEndOf="@id/bitcoin"
+            app:layout_constraintTop_toTopOf="@id/bitcoin"
+            tools:text="1000" />
 
         <TextView
             android:id="@+id/velocity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/sigmar_one"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/balanceBtc"
-            tools:text="Скорость 0.5 BTC/сек" />
+            tools:text="0.5 BTC/sec" />
+
+        <ImageView
+            android:id="@+id/dollar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/dollar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/balanceDollars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/sigmar_one"
+            android:textColor="@color/white"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/dollar"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="300 $" />
+            tools:text="300" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.singlelab.bitcoinbrawler.databinding.ActivityMainBinding
@@ -38,12 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_stock, R.id.navigation_store
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         runTimerForUser()
@@ -56,9 +48,9 @@ class MainActivity : AppCompatActivity() {
     private fun observeLiveData() {
         userLiveData.observe(this, {
             with(binding) {
-                balanceBtc.text = "${it.amountBtc} BTC"
-                balanceDollars.text = "${(it.amountDollar).roundTo(2)} $"
-                velocity.text = "${it.getAllVelocity()} BTC/sec"
+                balanceBtc.text = it.amountBtc.toString()
+                balanceDollars.text = (it.amountDollar).roundTo(2).toString()
+                velocity.text = "${it.getAllVelocity()}/sec"
             }
         })
     }
