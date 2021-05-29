@@ -9,5 +9,5 @@ import com.singlelab.bitcoinbrawler.R
 class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val priceTextView: TextView = view.findViewById(R.id.productPrice)
     val nameTextView: TextView = view.findViewById(R.id.productName)
-    val buyButton: Button = view.findViewById(R.id.buttonBuy)
+    val buyButton: View = view.findViewById(R.id.buttonBuy)
 }

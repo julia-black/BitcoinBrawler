@@ -44,10 +44,10 @@ class HomeFragment : BaseFragment() {
     private fun observeUser() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
             context?.apply {
-                it.getPepe()?.let { product ->
-                    val pepeDrawable = getPepeDrawable(this.assets, product)
-                    binding.pepe.setImageDrawable(pepeDrawable)
-                }
+//                it.getPepe()?.let { product ->
+//                    val pepeDrawable = getPepeDrawable(this.assets, product)
+//                    binding.pepe.setImageDrawable(pepeDrawable)
+//                }
                 //binding.drill.text = it.getDrill()
             }
         })
