@@ -14,7 +14,6 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.R
 import com.singlelab.bitcoinbrawler.databinding.FragmentStockBinding
@@ -74,13 +73,14 @@ class StockFragment : BaseFragment() {
             dataSets.add(
                 LineDataSet(values, getString(R.string.price_btc)).apply {
                     axisDependency = AxisDependency.LEFT
-                    color = ColorTemplate.getHoloBlue()
+                    color = ContextCompat.getColor(context, R.color.background)
                     setCircleColor(Color.WHITE)
                     lineWidth = 2f
                     circleRadius = 3f
                     fillAlpha = 65
-                    fillColor = ColorTemplate.getHoloBlue()
                     highLightColor = ContextCompat.getColor(context, R.color.black)
+                    setCircleColor(ContextCompat.getColor(context, R.color.background_dark))
+                    setDrawCircles(true)
                     setDrawCircleHole(false)
                 })
             this.data = LineData(dataSets)

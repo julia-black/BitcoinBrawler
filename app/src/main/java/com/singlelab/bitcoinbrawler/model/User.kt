@@ -70,6 +70,6 @@ data class User(
     fun getDrill(): String {
         return products.findLast {
             it.type == ProductType.DRILL
-        }?.name ?: Const.DRILL_DEFAULT
+        }?.name ?: ""
     }
 }
