@@ -1,9 +1,11 @@
 package com.singlelab.bitcoinbrawler.model
 
 object Const {
+    const val PREF_DATA = "pref_data"
     const val PREF_USER_BTC = "pref_user_btc"
     const val PREF_USER_DOLLARS = "pref_user_dollars"
     const val PREF_VELOCITY = "pref_velocity"
+    const val PREF_PRODUCT_IDS = "pref_product_ids"
 
     const val RANGE = 1.0
     const val COUNT_PRICES = 10

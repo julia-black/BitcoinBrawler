@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.singlelab.bitcoinbrawler.data.Preference
 import com.singlelab.bitcoinbrawler.databinding.ActivityMainBinding
 import com.singlelab.bitcoinbrawler.model.Const
 import com.singlelab.bitcoinbrawler.model.User
@@ -15,13 +16,12 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    //todo пока что юзер живет в рамках сессии, далее будет сохраняться на устройстве
-    val userLiveData = MutableLiveData<User>().apply {
-        value = User(0, 0.0, 1)
-    }
+    lateinit var preference: Preference
 
-    val pricesLiveData = MutableLiveData<List<Double>>().apply {
-        value = mutableListOf(10.0, 12.0, 12.0, 12.0, 13.0)
+    val userLiveData = MutableLiveData<User>()
+
+    val pricesLiveData = MutableLiveData<List<Float>>().apply {
+        value = mutableListOf(10.0f, 12.0f, 12.0f, 12.0f, 13.0f)
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
+        preference = Preference(getSharedPreferences(Const.PREF_DATA, MODE_PRIVATE))
+        userLiveData.value = preference.getUserData()
+
         runTimerForUser()
 
         runTimerForStock()
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 balanceBtc.text = it.amountBtc.toString()
                 balanceDollars.text = (it.amountDollar).roundTo(2).toString()
                 velocity.text = "${it.getAllVelocity()}/sec"
+                preference.updateUserData(it)
             }
         })
     }
@@ -72,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             val newPrice = generateNewPrice(it)
             val list = pricesLiveData.value?.toMutableList()
             if (it.size >= Const.COUNT_PRICES) {
-                val newList = mutableListOf<Double>()
+                val newList = mutableListOf<Float>()
                 list?.reverse()
                 list?.forEachIndexed { index, item ->
                     if (index >= Const.COUNT_PRICES) {
@@ -91,9 +95,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun generateNewPrice(value: List<Double>): Double {
+    private fun generateNewPrice(value: List<Float>): Float {
         val last = value.last()
-        val newPrice = Random.nextDouble(last - Const.RANGE, last + Const.RANGE)
+        val newPrice = Random.nextDouble(last - Const.RANGE, last + Const.RANGE).toFloat()
         return newPrice.roundTo(2)
     }
 

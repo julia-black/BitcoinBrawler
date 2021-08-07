@@ -2,15 +2,20 @@ package com.singlelab.bitcoinbrawler.ui.store
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.singlelab.bitcoinbrawler.model.Const
 import com.singlelab.bitcoinbrawler.model.Product
 import com.singlelab.bitcoinbrawler.model.ProductType
 
 class StoreViewModel : ViewModel() {
 
+    var productsLiveData = MutableLiveData<List<Product>>()
+
     private var userProducts: List<Product>? = null
 
-    var productsLiveData = MutableLiveData<List<Product>>()
+    private val drillsList
+        get() = Product.values().filter { it.type == ProductType.DRILL }
+
+    private val pepesList
+        get() = Product.values().filter { it.type == ProductType.PEPE }
 
     fun setUserProducts(products: List<Product>) {
         userProducts = products
@@ -45,21 +50,5 @@ class StoreViewModel : ViewModel() {
             }
         }
         return result
-    }
-
-    companion object {
-        private val pepesList = listOf(
-            Product(Const.PEPE_ID_1, "Pepe 1", 100, ProductType.PEPE, "Это пепе 1", 10),
-            Product(Const.PEPE_ID_2, "Pepe 2", 200, ProductType.PEPE, "Это пепе 2", 10),
-            Product(Const.PEPE_ID_3, "Pepe 3", 300, ProductType.PEPE, "Это пепе 3", 10),
-            Product(Const.PEPE_ID_4, "Pepe 4", 400, ProductType.PEPE, "Это пепе 4", 10),
-            Product(Const.PEPE_ID_5, "Pepe 5", 500, ProductType.PEPE, "Это пепе 5", 10),
-        )
-
-        private val drillsList = listOf(
-            Product(Const.DRILL_ID_1, "Drill 1", 50, ProductType.DRILL, "Это дрель 1", 15),
-            Product(Const.DRILL_ID_2, "Drill 2", 300, ProductType.DRILL, "Это дрель 2", 15),
-            Product(Const.DRILL_ID_3, "Drill 3", 1000, ProductType.DRILL, "Это дрель 3", 15),
-        )
     }
 }

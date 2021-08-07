@@ -7,10 +7,14 @@ import kotlin.math.roundToInt
 
 data class User(
     var amountBtc: Int,
-    var amountDollar: Double,
+    var amountDollar: Float,
     var velocity: Int,
     var products: MutableList<Product> = mutableListOf()
 ) {
+
+    val productIds
+        get() = products.joinToString(",")
+
     fun incBtc(): User {
         amountBtc += getAllVelocity()
         return this
@@ -29,7 +33,7 @@ data class User(
         return allVelocity
     }
 
-    fun buyBtc(amount: Int, price: Double): User {
+    fun buyBtc(amount: Int, price: Float): User {
         if (amountDollar >= amount * price) {
             amountDollar -= amount * price
             amountDollar = amountDollar.roundTo(2)
@@ -40,7 +44,7 @@ data class User(
         return this
     }
 
-    fun sellBtc(amount: Int, price: Double): User {
+    fun sellBtc(amount: Int, price: Float): User {
         if (amountBtc >= amount) {
             amountBtc -= amount
             amountDollar += amount * price
@@ -51,7 +55,7 @@ data class User(
         return this
     }
 
-    fun buyProduct(product: Product): User? {
+    fun buyProduct(product: Product): User {
         if (product.price <= amountDollar) {
             amountDollar -= product.price
             products.add(product)

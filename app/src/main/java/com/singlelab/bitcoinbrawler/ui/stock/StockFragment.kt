@@ -108,15 +108,18 @@ class StockFragment : BaseFragment() {
         })
 
         stockViewModel.userLiveData.observe(viewLifecycleOwner, {
-            if (it != null) {
-                (activity as MainActivity).userLiveData.value = it
-                showToast(getString(R.string.success))
-                binding.amount.setText("")
+            with(activity as MainActivity) {
+                if (it != null) {
+                    preference.updateUserData(it)
+                    userLiveData.value = it
+                    showToast(getString(R.string.success))
+                    binding.amount.setText("")
+                }
             }
         })
     }
 
-    private fun getActualPrice(): Double? {
+    private fun getActualPrice(): Float? {
         return (activity as MainActivity).pricesLiveData.value?.last()
     }
 

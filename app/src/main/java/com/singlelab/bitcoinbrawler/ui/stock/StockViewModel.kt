@@ -8,13 +8,13 @@ class StockViewModel : ViewModel() {
 
     var userLiveData = MutableLiveData<User?>()
 
-    fun buyBtc(amount: Int?, user: User?, price: Double?) {
+    fun buyBtc(amount: Int?, user: User?, price: Float?) {
         if (amount != null && price != null && user != null) {
             userLiveData.value = user.buyBtc(amount, price)
         }
     }
 
-    fun sellBtc(amount: Int?, user: User?, price: Double?) {
+    fun sellBtc(amount: Int?, user: User?, price: Float?) {
         if (amount != null && price != null && user != null) {
             userLiveData.value = user.sellBtc(amount, price)
         }
