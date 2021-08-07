@@ -71,9 +71,9 @@ data class User(
         }
     }
 
-    fun getDrill(): String {
+    fun getDrill(): Product? {
         return products.findLast {
             it.type == ProductType.DRILL
-        }?.name ?: ""
+        }
     }
 }

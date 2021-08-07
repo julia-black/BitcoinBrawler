@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.singlelab.bitcoinbrawler.R
 import com.singlelab.bitcoinbrawler.model.Product
-import com.singlelab.bitcoinbrawler.util.getDrawableByProductId
+import com.singlelab.bitcoinbrawler.util.getDrawableByProduct
 
 class ProductsAdapter(
     private val products: List<Product>,
@@ -29,7 +29,7 @@ class ProductsAdapter(
             nameTextView.text = product.name
             priceTextView.text = product.price.toString()
             descriptionTextView.text = product.description
-            image.setImageDrawable(image.context.getDrawableByProductId(product.id))
+            image.setImageDrawable(image.context.getDrawableByProduct(product))
             buyButton.setOnClickListener {
                 onBuyClick.invoke(product)
             }

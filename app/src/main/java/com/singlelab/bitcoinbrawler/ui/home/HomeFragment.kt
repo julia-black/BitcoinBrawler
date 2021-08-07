@@ -1,16 +1,15 @@
 package com.singlelab.bitcoinbrawler.ui.home
 
-import android.content.res.AssetManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentHomeBinding
-import com.singlelab.bitcoinbrawler.model.Product
 import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
-import pl.droidsonroids.gif.GifDrawable
+import com.singlelab.bitcoinbrawler.util.getDrawableRes
 
 
 class HomeFragment : BaseFragment() {
@@ -44,21 +43,22 @@ class HomeFragment : BaseFragment() {
     private fun observeUser() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
             context?.apply {
-//                it.getPepe()?.let { product ->
-//                    val pepeDrawable = getPepeDrawable(this.assets, product)
-//                    binding.pepe.setImageDrawable(pepeDrawable)
-//                }
-                //binding.drill.text = it.getDrill()
+                it.getPepe()?.let {
+                    Glide
+                        .with(this)
+                        .asGif()
+                        .load(it.getDrawableRes())
+                        .into(binding.pepe)
+                }
+
+                it.getDrill()?.let {
+                    Glide
+                        .with(this)
+                        .asGif()
+                        .load(it.getDrawableRes())
+                        .into(binding.drill)
+                }
             }
         })
-    }
-
-    private fun getPepeDrawable(assets: AssetManager, product: Product): GifDrawable {
-        return GifDrawable(
-            assets, when (product.id) {
-                0 -> "pepe_default.gif"
-                else -> "pepe_default.gif"
-            }
-        )
     }
 }
