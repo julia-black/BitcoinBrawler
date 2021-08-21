@@ -17,6 +17,9 @@ class StoreViewModel : ViewModel() {
     private val pepesList
         get() = Product.values().filter { it.type == ProductType.PEPE }
 
+    private val othersList
+        get() = Product.values().filter { it.type == ProductType.OTHER }.toMutableList()
+
     fun setUserProducts(products: List<Product>) {
         userProducts = products
         productsLiveData.value = getProducts()
@@ -49,6 +52,14 @@ class StoreViewModel : ViewModel() {
                 result.add(it)
             }
         }
+
+        userProducts?.forEach { product ->
+            if (product == Product.MONSTER) {
+                othersList.removeAll { it == Product.MONSTER }
+            }
+        }
+        result.addAll(othersList)
+
         return result
     }
 }

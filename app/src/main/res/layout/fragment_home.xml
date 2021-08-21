@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:padding="16dp"
     tools:background="@mipmap/background"
     tools:context=".ui.home.HomeFragment">
@@ -29,5 +30,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/pepe" />
+
+    <ImageView
+        android:id="@+id/monster"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginStart="4dp"
+        android:rotation="30"
+        android:src="@mipmap/monster"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

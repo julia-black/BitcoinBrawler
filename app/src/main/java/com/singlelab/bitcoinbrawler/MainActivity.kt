@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.singlelab.bitcoinbrawler.data.Preference
+import com.singlelab.bitcoinbrawler.data.Res
 import com.singlelab.bitcoinbrawler.databinding.ActivityMainBinding
 import com.singlelab.bitcoinbrawler.model.Const
 import com.singlelab.bitcoinbrawler.model.User
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Res.setContext(this)
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -51,6 +54,11 @@ class MainActivity : AppCompatActivity() {
         runTimerForStock()
 
         observeLiveData()
+    }
+
+    override fun onDestroy() {
+        Res.setContext(null)
+        super.onDestroy()
     }
 
     private fun observeLiveData() {

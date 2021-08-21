@@ -76,4 +76,10 @@ data class User(
             it.type == ProductType.DRILL
         }
     }
+
+    fun getOtherProducts(): List<Product> {
+        return products.filter {
+            it.type == ProductType.OTHER
+        }
+    }
 }

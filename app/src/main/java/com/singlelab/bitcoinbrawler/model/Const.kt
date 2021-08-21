@@ -24,4 +24,6 @@ object Const {
     const val DRILL_ID_1 = 6
     const val DRILL_ID_2 = 7
     const val DRILL_ID_3 = 8
+
+    const val MONSTER_ID = 9
 }

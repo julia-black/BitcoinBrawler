@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.singlelab.bitcoinbrawler.MainActivity
 import com.singlelab.bitcoinbrawler.databinding.FragmentHomeBinding
+import com.singlelab.bitcoinbrawler.model.Product
 import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
 import com.singlelab.bitcoinbrawler.util.getDrawableRes
 
@@ -57,6 +59,14 @@ class HomeFragment : BaseFragment() {
                         .asGif()
                         .load(it.getDrawableRes())
                         .into(binding.drill)
+                }
+
+                with(binding) {
+                    it.getOtherProducts().forEach {
+                        when (it) {
+                            Product.MONSTER -> monster.isVisible = true
+                        }
+                    }
                 }
             }
         })
