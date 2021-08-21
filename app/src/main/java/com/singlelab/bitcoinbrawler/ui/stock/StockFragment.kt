@@ -6,6 +6,10 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
@@ -95,16 +99,16 @@ class StockFragment : BaseFragment() {
             }
 
             val entries = it.mapIndexed { index, value ->
-                Entry(index.toFloat(), value.toFloat())
+                Entry(index.toFloat(), value)
             }
             binding.chart.clear()
             initChart()
             setData(entries)
-            try {
-                showInfoAmount(parseAmount(binding.amount.text))
-            } catch (e: Exception) {
-                showInfoAmount()
-            }
+            showInfoAmount()
+        })
+
+        (activity as MainActivity).isPositiveTrendLiveData.observe(viewLifecycleOwner, {
+            updateArrow(it)
         })
 
         stockViewModel.userLiveData.observe(viewLifecycleOwner, {
@@ -113,7 +117,6 @@ class StockFragment : BaseFragment() {
                     preference.updateUserData(it)
                     userLiveData.value = it
                     showToast(getString(R.string.success))
-                    binding.amount.setText("")
                 }
             }
         })
@@ -123,51 +126,59 @@ class StockFragment : BaseFragment() {
         return (activity as MainActivity).pricesLiveData.value?.last()
     }
 
-    private fun showInfoAmount(selectedAmount: Int = 1) {
+    private fun showInfoAmount(view: TextView = binding.infoAmount, selectedAmount: Int = 1) {
         val price = getActualPrice()
         if (price != null) {
-            binding.infoAmount.text =
+            view.text =
                 "$selectedAmount BTC = ${(price * selectedAmount).roundTo(2)}$"
+        }
+    }
+
+    private fun updateArrow(isPositiveTrend: Boolean) {
+        context?.let {
+            binding.arrow.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    it,
+                    if (isPositiveTrend) R.drawable.ic_arrow_up else R.drawable.ic_arrow_down
+                )
+            )
         }
     }
 
     private fun setListeners() {
         with(binding) {
-            amount.addTextChangedListener {
-                try {
-                    showInfoAmount(parseAmount(it))
-                } catch (e: Exception) {
-                    showInfoAmount()
-                }
-            }
             buttonBuyBtc.setOnClickListener {
-                try {
-                    stockViewModel.buyBtc(
-                        getAmount(),
-                        (activity as MainActivity).userLiveData.value,
-                        getActualPrice()
-                    )
-                } catch (e: BuyingException) {
-                    showError(e)
+                showDialogAmount {
+                    try {
+                        stockViewModel.buyBtc(
+                            getAmount(it),
+                            (activity as MainActivity).userLiveData.value,
+                            getActualPrice()
+                        )
+                    } catch (e: BuyingException) {
+                        showError(e)
+                    }
                 }
             }
             buttonSellBtc.setOnClickListener {
-                try {
-                    stockViewModel.sellBtc(
-                        getAmount(),
-                        (activity as MainActivity).userLiveData.value,
-                        getActualPrice()
-                    )
-                } catch (e: BuyingException) {
-                    showError(e)
+                showDialogAmount {
+                    try {
+                        stockViewModel.sellBtc(
+                            getAmount(it),
+                            (activity as MainActivity).userLiveData.value,
+                            getActualPrice()
+                        )
+                    } catch (e: BuyingException) {
+                        showError(e)
+                    }
                 }
             }
         }
     }
 
-    private fun getAmount(): Int? {
+    private fun getAmount(text: Editable): Int? {
         try {
-            return parseAmount(binding.amount.text)
+            return parseAmount(text)
         } catch (e: Exception) {
             showEmptyAmountError()
         }
@@ -184,5 +195,43 @@ class StockFragment : BaseFragment() {
 
     private fun showEmptyAmountError() {
         showToast(getString(R.string.amount_error))
+    }
+
+    private fun showDialogAmount(onOkClick: (Editable) -> Unit) {
+        context?.let { context ->
+            val inflater = LayoutInflater.from(context)
+            val view = inflater.inflate(R.layout.edit_text_dialog, null)
+            val alertDialogBuilder = AlertDialog.Builder(context)
+
+            alertDialogBuilder.setView(view)
+
+            val amountTextView = view.findViewById<TextView>(R.id.infoAmountInDialog)
+            val userInput = view.findViewById<EditText>(R.id.editText).apply {
+                addTextChangedListener {
+                    try {
+                        showInfoAmount(amountTextView, parseAmount(it))
+                    } catch (e: Exception) {
+                        showInfoAmount(amountTextView)
+                    }
+                }
+            }
+
+            alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton(
+                    getString(R.string.ok)
+                ) { _, _ ->
+                    onOkClick.invoke(userInput.text)
+                }
+                .setNegativeButton(
+                    getString(R.string.cancel)
+                ) { dialog, _ ->
+                    dialog.cancel()
+                }?.apply {
+                    create()
+                    show()
+                    showInfoAmount(amountTextView)
+                }
+        }
     }
 }

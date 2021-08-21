@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/standart_padding"
     android:paddingBottom="42dp"
+    tools:background="@mipmap/background"
     tools:context=".ui.stock.StockFragment">
 
     <com.github.mikephil.charting.charts.LineChart
@@ -13,30 +14,37 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="@dimen/standart_padding"
-        app:layout_constraintBottom_toTopOf="@id/infoAmount"
+        app:layout_constraintBottom_toTopOf="@id/infoLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_amount"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonSellBtc"
-        app:layout_constraintStart_toEndOf="@id/buttonBuyBtc"
-        app:layout_constraintTop_toTopOf="@id/buttonBuyBtc" />
-
-    <TextView
-        android:id="@+id/infoAmount"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/standart_padding"
-        app:layout_constraintBottom_toTopOf="@id/amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="1BTC = 100$" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/buttonBuyBtc">
 
+        <TextView
+            android:id="@+id/infoAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            tools:text="1BTC = 100$" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_up"
+            app:layout_constraintBottom_toBottomOf="@id/infoAmount"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/infoAmount"
+            app:layout_constraintTop_toTopOf="@id/infoAmount" />
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonBuyBtc"
@@ -44,6 +52,7 @@
         android:layout_height="wrap_content"
         android:text="@string/buy_btc"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonSellBtc"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -53,6 +62,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sell_btc"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonBuyBtc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

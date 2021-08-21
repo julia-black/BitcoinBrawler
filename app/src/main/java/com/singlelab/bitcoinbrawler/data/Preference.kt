@@ -29,6 +29,19 @@ class Preference(private val sharedPreferences: SharedPreferences) {
         )
     }
 
+    fun savePrices(prices: List<Float>) {
+        sharedPreferences
+            .edit()
+            .putString(Const.PREF_PRICES, prices.joinToString(","))
+            .apply()
+    }
+
+    fun getPrices(): List<Float> =
+        sharedPreferences.getString(Const.PREF_PRICES, "100.0, 100.03, 100.06, 100.04, 100.05")!!
+            .split(",").map {
+            it.toFloat()
+        }
+
     private fun getProducts(productIds: String): List<Product> {
         return productIds.split(",").mapNotNull {
             Log.d("123LOG", "product = $it")

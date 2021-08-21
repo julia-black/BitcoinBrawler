@@ -20,9 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     val userLiveData = MutableLiveData<User>()
 
-    val pricesLiveData = MutableLiveData<List<Float>>().apply {
-        value = mutableListOf(10.0f, 12.0f, 12.0f, 12.0f, 13.0f)
+    val pricesLiveData = MutableLiveData<List<Float>>()
+
+    val isPositiveTrendLiveData = MutableLiveData<Boolean>().apply {
+        this.value = true
     }
+
+    private var ticks = 0
 
     private lateinit var binding: ActivityMainBinding
 
@@ -40,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         preference = Preference(getSharedPreferences(Const.PREF_DATA, MODE_PRIVATE))
         userLiveData.value = preference.getUserData()
+        pricesLiveData.value = preference.getPrices()
 
         runTimerForUser()
 
@@ -72,8 +77,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateStock() {
+        ticks++
         pricesLiveData.value?.let {
-            val newPrice = generateNewPrice(it)
+            if (ticks == 10) {
+                isPositiveTrendLiveData.value = generateTrend()
+                ticks = 0
+            }
+            val newPrice = generateNewPrice(it, isPositiveTrendLiveData.value!!)
             val list = pricesLiveData.value?.toMutableList()
             if (it.size >= Const.COUNT_PRICES) {
                 val newList = mutableListOf<Float>()
@@ -89,15 +99,28 @@ class MainActivity : AppCompatActivity() {
                 newList.add(newPrice)
                 pricesLiveData.value = newList
             } else {
-                list?.add(newPrice)
-                pricesLiveData.value = list
+                list?.apply {
+                    add(newPrice)
+                    pricesLiveData.value = this
+                }
             }
+        }
+        pricesLiveData.value?.let {
+            preference.savePrices(it)
         }
     }
 
-    private fun generateNewPrice(value: List<Float>): Float {
+    private fun generateTrend() = Random.nextDouble() <= 0.7
+
+    private fun generateNewPrice(value: List<Float>, isPositiveTrend: Boolean): Float {
         val last = value.last()
-        val newPrice = Random.nextDouble(last - Const.RANGE, last + Const.RANGE).toFloat()
+        val newPrice = if (isPositiveTrend) {
+            Random.nextDouble(last - Const.RANGE_MIN_POSITIVE, last + Const.RANGE_MAX_POSITIVE)
+                .toFloat()
+        } else {
+            Random.nextDouble(last - Const.RANGE_MIN_NEGATIVE, last + Const.RANGE_MAX_NEGATIVE)
+                .toFloat()
+        }
         return newPrice.roundTo(2)
     }
 

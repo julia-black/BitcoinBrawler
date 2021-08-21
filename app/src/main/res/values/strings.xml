@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_stock">Stock</string>
     <string name="title_store">Store</string>
-    <string name="enter_amount">Amount</string>
+    <string name="enter_amount">Enter amount of BTC</string>
     <string name="buy_btc">Buy bitcoins</string>
     <string name="sell_btc">Sell bitcoins</string>
     <string name="amount_error">Enter valid amount</string>
@@ -12,4 +12,6 @@
     <string name="success">Success!</string>
     <string name="price_btc">Price BTC, $</string>
     <string name="buy">Buy</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
