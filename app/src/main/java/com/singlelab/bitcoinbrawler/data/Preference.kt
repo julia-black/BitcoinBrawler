@@ -24,7 +24,7 @@ class Preference(private val sharedPreferences: SharedPreferences) {
             sharedPreferences.getFloat(Const.PREF_USER_DOLLARS, 0f),
             sharedPreferences.getInt(Const.PREF_VELOCITY, 1),
             getProducts(
-                sharedPreferences.getString(Const.PREF_PRODUCT_IDS, "") ?: ""
+                sharedPreferences.getString(Const.PREF_PRODUCT_IDS, "PEPE_1,DRILL_1") ?: ""
             ).toMutableList()
         )
     }
