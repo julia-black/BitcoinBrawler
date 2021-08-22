@@ -43,14 +43,16 @@ class StoreFragment : BaseFragment() {
 
     private fun observeUser() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, { user ->
-            storeViewModel.setUserProducts(user.products)
-            storeViewModel.productsLiveData.observe(viewLifecycleOwner, { products ->
-                showLoading(false)
-                with(binding.recyclerView) {
-                    layoutManager = LinearLayoutManager(context)
-                    adapter = ProductsAdapter(products, user.products, ::onItemClick)
-                }
-            })
+            if (user.products != storeViewModel.getUserProducts()) {
+                storeViewModel.setUserProducts(user.products)
+            }
+        })
+        storeViewModel.productsLiveData.observe(viewLifecycleOwner, { products ->
+            showLoading(false)
+            with(binding.recyclerView) {
+                layoutManager = LinearLayoutManager(context)
+                adapter = ProductsAdapter(products, storeViewModel.getUserProducts(), ::onItemClick)
+            }
         })
     }
 

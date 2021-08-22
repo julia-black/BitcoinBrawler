@@ -10,12 +10,12 @@ fun Product.getDrawableRes(): Int {
     return when (this) {
         Product.PEPE_1 -> R.mipmap.pepe_default
         Product.PEPE_2 -> R.mipmap.pepehappy
-        Product.PEPE_3 -> R.mipmap.pepe_default
+        Product.PEPE_3 -> R.mipmap.normis
         Product.PEPE_4 -> R.mipmap.pepemad
         Product.PEPE_5 -> R.mipmap.pepeveryhappy
         Product.DRILL_1 -> R.mipmap.drill_default
-        Product.DRILL_2 -> R.mipmap.drill_default
-        Product.DRILL_3 -> R.mipmap.drill_default
+        Product.DRILL_2 -> R.mipmap.superdrill
+        Product.DRILL_3 -> R.mipmap.superdill2
         Product.MONSTER -> R.mipmap.monster
         else -> throw Exception("Not found drawable with product id = $id")
     }

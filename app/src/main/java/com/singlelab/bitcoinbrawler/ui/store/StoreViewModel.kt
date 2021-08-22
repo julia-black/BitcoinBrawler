@@ -20,6 +20,9 @@ class StoreViewModel : ViewModel() {
     private val othersList
         get() = Product.values().filter { it.type == ProductType.OTHER }.toMutableList()
 
+
+    fun getUserProducts() = userProducts
+
     fun setUserProducts(products: List<Product>) {
         userProducts = products
         productsLiveData.value = getProducts()
@@ -38,6 +41,9 @@ class StoreViewModel : ViewModel() {
             }?.let {
                 result.add(it)
             }
+            if (userPepe == Product.PEPE_5) {
+                result.add(Product.PEPE_5)
+            }
         }
 
         val userDrill = userProducts?.findLast {
@@ -51,11 +57,8 @@ class StoreViewModel : ViewModel() {
             }?.let {
                 result.add(it)
             }
-        }
-
-        userProducts?.forEach { product ->
-            if (product == Product.MONSTER) {
-                othersList.removeAll { it == Product.MONSTER }
+            if (userDrill == Product.DRILL_3) {
+                result.add(Product.DRILL_3)
             }
         }
         result.addAll(othersList)
