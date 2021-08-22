@@ -26,7 +26,7 @@ class ProductsAdapter(
     override fun onBindViewHolder(viewHolder: ProductViewHolder, position: Int) {
         val product = products[position]
         with(viewHolder) {
-            nameTextView.text = product.name
+            nameTextView.text = product.title
             priceTextView.text = product.price.toString()
             descriptionTextView.text = product.description
             image.setImageDrawable(image.context.getDrawableByProduct(product))

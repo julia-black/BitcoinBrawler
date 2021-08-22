@@ -12,22 +12,23 @@
         android:id="@+id/pepe"
         android:layout_width="200dp"
         android:layout_height="250dp"
+        android:layout_marginBottom="70dp"
         android:src="@mipmap/pepe_default"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/drill"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/drill"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginBottom="48dp"
         android:src="@mipmap/drill_default"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/pepe" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 
     <ImageView
         android:id="@+id/monster"
@@ -43,8 +44,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/shleppa"
-        android:layout_width="170.5dp"
-        android:layout_height="153dp"
+        android:layout_width="112dp"
+        android:layout_height="100dp"
         android:src="@mipmap/shleppa"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
