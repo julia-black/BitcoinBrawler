@@ -17,6 +17,7 @@ fun Product.getDrawableRes(): Int {
         Product.DRILL_2 -> R.mipmap.superdrill
         Product.DRILL_3 -> R.mipmap.superdill2
         Product.MONSTER -> R.mipmap.monster
+        Product.SHLEPPA -> R.mipmap.shleppa
         else -> throw Exception("Not found drawable with product id = $id")
     }
 }

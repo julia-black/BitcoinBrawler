@@ -31,5 +31,15 @@ enum class Product(
         Res.getStr(R.string.monster_description),
         null,
         1.5
+    ),
+
+    SHLEPPA(
+        Const.SHLEPPA_ID,
+        Res.getStr(R.string.shleppa_title),
+        1000,
+        ProductType.OTHER,
+        Res.getStr(R.string.shleppa_description),
+        null,
+        3.0
     )
 }

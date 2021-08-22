@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:padding="16dp"
     tools:background="@mipmap/background"
     tools:context=".ui.home.HomeFragment">
 
@@ -32,15 +31,24 @@
 
     <ImageView
         android:id="@+id/monster"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="150dp"
-        android:layout_marginStart="4dp"
-        android:rotation="30"
+        android:rotation="20"
         android:src="@mipmap/monster"
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/shleppa"
+        android:layout_width="170.5dp"
+        android:layout_height="153dp"
+        android:src="@mipmap/shleppa"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

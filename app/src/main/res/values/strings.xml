@@ -16,4 +16,6 @@
     <string name="cancel">Cancel</string>
     <string name="monster_title">Monster Energy</string>
     <string name="monster_description">This is monster!</string>
+    <string name="shleppa_title">Shleppa</string>
+    <string name="shleppa_description">Big russian cat</string>
 </resources>

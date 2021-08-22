@@ -65,6 +65,7 @@ class HomeFragment : BaseFragment() {
                     it.getOtherProducts().forEach {
                         when (it) {
                             Product.MONSTER -> monster.isVisible = true
+                            Product.SHLEPPA -> shleppa.isVisible = true
                         }
                     }
                 }

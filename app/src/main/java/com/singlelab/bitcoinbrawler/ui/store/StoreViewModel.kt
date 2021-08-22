@@ -20,11 +20,10 @@ class StoreViewModel : ViewModel() {
     private val othersList
         get() = Product.values().filter { it.type == ProductType.OTHER }.toMutableList()
 
-
     fun getUserProducts() = userProducts
 
     fun setUserProducts(products: List<Product>) {
-        userProducts = products
+        userProducts = products.toList()
         productsLiveData.value = getProducts()
     }
 
