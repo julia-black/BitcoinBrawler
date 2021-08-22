@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/shleppa"
         android:layout_width="112dp"
         android:layout_height="100dp"
@@ -50,6 +50,58 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/spidy"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitEnd"
+        android:rotation="270"
+        android:src="@mipmap/spidy"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/shrek"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="200dp"
+        android:rotation="90"
+        android:scaleType="fitEnd"
+        android:src="@mipmap/shrek"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/doge"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:rotation="25"
+        android:scaleType="fitEnd"
+        android:src="@mipmap/doge"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/gucci"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@mipmap/gucci"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,10 +16,10 @@
     <string name="cancel">Cancel</string>
 
     <string name="monster_title">Monster Energy</string>
-    <string name="monster_description">Increases speed by 5 times</string>
+    <string name="monster_desc">Increases speed by 5 times</string>
 
     <string name="shleppa_title">Big Russia Cat</string>
-    <string name="shleppa_description">Increases speed by 5 times</string>
+    <string name="shleppa_desc">Increases speed by 5 times</string>
 
     <string name="pepe_1">Sad pepe</string>
     <string name="pepe_1_desc">It\'s default pepe</string>
@@ -44,4 +44,13 @@
 
     <string name="drill_3">Overage jackhammer</string>
     <string name="drill_3_desc">Increases speed by 5 times</string>
+
+    <string name="gucci_title">Gucci flip flop</string>
+    <string name="gucci_desc">Increases speed by 5 times</string>
+    <string name="spidy_title">Spidy</string>
+    <string name="spidy_desc">...</string>
+    <string name="shrek_title">Shrek</string>
+    <string name="shrek_desc">...</string>
+    <string name="doge_title">Doge</string>
+    <string name="doge_desc">...</string>
 </resources>

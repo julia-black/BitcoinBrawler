@@ -27,4 +27,8 @@ object Const {
 
     const val MONSTER_ID = 9
     const val SHLEPPA_ID = 10
+    const val GUCCI_ID = 11
+    const val SHREK_ID = 12
+    const val SPIDY_ID = 13
+    const val DOGE_ID = 14
 }

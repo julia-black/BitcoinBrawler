@@ -66,6 +66,10 @@ class HomeFragment : BaseFragment() {
                         when (it) {
                             Product.MONSTER -> monster.isVisible = true
                             Product.SHLEPPA -> shleppa.isVisible = true
+                            Product.GUCCI -> gucci.isVisible = true
+                            Product.SPIDY -> spidy.isVisible = true
+                            Product.SHREK -> shrek.isVisible = true
+                            Product.DOGE -> doge.isVisible = true
                         }
                     }
                 }

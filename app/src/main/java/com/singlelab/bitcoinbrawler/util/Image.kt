@@ -18,6 +18,10 @@ fun Product.getDrawableRes(): Int {
         Product.DRILL_3 -> R.mipmap.superdill2
         Product.MONSTER -> R.mipmap.monster
         Product.SHLEPPA -> R.mipmap.shleppa
+        Product.GUCCI -> R.mipmap.gucci
+        Product.DOGE -> R.mipmap.doge
+        Product.SHREK -> R.mipmap.shrek
+        Product.SPIDY -> R.mipmap.spidy
         else -> throw Exception("Not found drawable with product id = $id")
     }
 }
