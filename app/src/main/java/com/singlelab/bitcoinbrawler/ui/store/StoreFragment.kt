@@ -43,8 +43,12 @@ class StoreFragment : BaseFragment() {
 
     private fun observeUser() {
         (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, { user ->
-            if (user.products.size != storeViewModel.getUserProducts()?.size || binding.recyclerView.adapter == null) {
+            if (user.products.size != storeViewModel.getUserProducts()?.size ||
+                binding.recyclerView.adapter == null ||
+                user.amountDollar != storeViewModel.userDollars
+            ) {
                 storeViewModel.setUserProducts(user.products)
+                storeViewModel.userDollars = user.amountDollar
                 showLoading(false)
                 initList()
             }
@@ -57,6 +61,7 @@ class StoreFragment : BaseFragment() {
             adapter = ProductsAdapter(
                 storeViewModel.productsLiveData.value!!,
                 storeViewModel.getUserProducts(),
+                storeViewModel.userDollars,
                 ::onItemClick
             )
         }

@@ -9,6 +9,8 @@ class StoreViewModel : ViewModel() {
 
     var productsLiveData = MutableLiveData<List<Product>>()
 
+    var userDollars = 0f
+
     private var userProducts: List<Product>? = null
 
     private val drillsList

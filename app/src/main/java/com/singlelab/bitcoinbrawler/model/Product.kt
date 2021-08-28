@@ -16,7 +16,7 @@ enum class Product(
     PEPE_1(
         Const.PEPE_ID_1,
         Res.getStr(R.string.pepe_1),
-        100,
+        0,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_1_desc),
         0
@@ -27,37 +27,37 @@ enum class Product(
         200,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_2_desc),
-        4
+        2
     ),
     PEPE_3(
         Const.PEPE_ID_3,
         Res.getStr(R.string.pepe_3),
-        300,
+        800,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_3_desc),
-        8
+        4
     ),
     PEPE_4(
         Const.PEPE_ID_4,
         Res.getStr(R.string.pepe_4),
-        400,
+        1600,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_4_desc),
-        16
+        8
     ),
     PEPE_5(
         Const.PEPE_ID_5,
         Res.getStr(R.string.pepe_5),
-        500,
+        10000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_5_desc),
-        32
+        16
     ),
 
     DRILL_1(
         Const.DRILL_ID_1,
         Res.getStr(R.string.drill_1),
-        50,
+        0,
         ProductType.DRILL,
         Res.getStr(R.string.drill_1_desc),
         null,
@@ -66,20 +66,20 @@ enum class Product(
     DRILL_2(
         Const.DRILL_ID_2,
         Res.getStr(R.string.drill_2),
-        300,
+        10000,
         ProductType.DRILL,
         Res.getStr(R.string.drill_2_desc),
         null,
-        7.0
+        2.0
     ),
     DRILL_3(
         Const.DRILL_ID_3,
         Res.getStr(R.string.drill_3),
-        1000,
+        40000,
         ProductType.DRILL,
         Res.getStr(R.string.drill_3_desc),
         null,
-        11.0
+        4.00
     ),
 
     MONSTER(
@@ -89,33 +89,33 @@ enum class Product(
         ProductType.OTHER,
         Res.getStr(R.string.monster_desc),
         null,
-        1.5
+        1.2
     ),
 
     SHLEPPA(
         Const.SHLEPPA_ID,
         Res.getStr(R.string.shleppa_title),
-        1000,
+        10000,
         ProductType.OTHER,
         Res.getStr(R.string.shleppa_desc),
         null,
-        3.0
+        5.0
     ),
 
     GUCCI(
         Const.GUCCI_ID,
         Res.getStr(R.string.gucci_title),
-        1000,
+        500,
         ProductType.OTHER,
         Res.getStr(R.string.gucci_desc),
         null,
-        3.0
+        1.5
     ),
 
     SPIDY(
         Const.SPIDY_ID,
         Res.getStr(R.string.spidy_title),
-        1000,
+        5000,
         ProductType.OTHER,
         Res.getStr(R.string.spidy_desc),
         null,
@@ -125,20 +125,20 @@ enum class Product(
     SHREK(
         Const.SHREK_ID,
         Res.getStr(R.string.shrek_title),
-        1000,
+        2000,
         ProductType.OTHER,
         Res.getStr(R.string.shrek_desc),
         null,
-        3.0
+        2.0
     ),
 
     DOGE(
         Const.DOGE_ID,
         Res.getStr(R.string.doge_title),
-        1000,
+        4000,
         ProductType.OTHER,
         Res.getStr(R.string.doge_desc),
         null,
-        3.0
+        4.0
     )
 }

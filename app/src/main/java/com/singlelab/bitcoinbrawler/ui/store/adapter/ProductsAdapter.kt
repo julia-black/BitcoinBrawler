@@ -10,6 +10,7 @@ import com.singlelab.bitcoinbrawler.util.getDrawableByProduct
 class ProductsAdapter(
     private val products: List<Product>,
     private val userProducts: List<Product>?,
+    private val userDollars: Float,
     private val onBuyClick: (Product) -> Unit
 ) :
     RecyclerView.Adapter<ProductViewHolder>() {
@@ -33,7 +34,8 @@ class ProductsAdapter(
             buyButton.setOnClickListener {
                 onBuyClick.invoke(product)
             }
-            buyButton.isEnabled = !(!userProducts.isNullOrEmpty() && userProducts.contains(product))
+            buyButton.isEnabled =
+                !(!userProducts.isNullOrEmpty() && userProducts.contains(product)) && product.price <= userDollars
         }
     }
 }
