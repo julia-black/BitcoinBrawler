@@ -12,4 +12,5 @@
     <color name="background_dark">#4BB9C5</color>
     <color name="transparent">#00000000</color>
     <color name="bottom_color">#ffb800</color>
+    <color name="color_text">#BF000000</color>
 </resources>

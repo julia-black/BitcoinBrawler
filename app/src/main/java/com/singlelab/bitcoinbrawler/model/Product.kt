@@ -75,7 +75,7 @@ enum class Product(
     DRILL_3(
         Const.DRILL_ID_3,
         Res.getStr(R.string.drill_3),
-        40000,
+        100000,
         ProductType.DRILL,
         Res.getStr(R.string.drill_3_desc),
         null,

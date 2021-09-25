@@ -15,42 +15,50 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
-    <string name="monster_title">Monster Energy</string>
-    <string name="monster_desc">Increases speed by 5 times</string>
+    <string name="monster_title" translatable="false">Monster Energy</string>
+    <string name="monster_desc">Gives energy to earn even more</string>
 
-    <string name="shleppa_title">Big Russia Cat</string>
-    <string name="shleppa_desc">Increases speed by 5 times</string>
+    <string name="shleppa_title" translatable="false">Big Russian Cat</string>
+    <string name="shleppa_desc">Give him a couple of mint gingerbread and he\'ll make the fuss</string>
 
-    <string name="pepe_1">Sad pepe</string>
-    <string name="pepe_1_desc">It\'s default pepe</string>
+    <string name="pepe_1" translatable="false">Sad pepe</string>
+    <string name="pepe_1_desc" translatable="false">It\'s default pepe</string>
 
-    <string name="pepe_2">Cunning pepe</string>
-    <string name="pepe_2_desc">Adds 5 bitcoins/sec to speed</string>
+    <string name="pepe_2" translatable="false">Cunning pepe</string>
+    <string name="pepe_2_desc">More cunning, more productivity!</string>
 
-    <string name="pepe_3">Normis</string>
-    <string name="pepe_3_desc">Adds 5 bitcoins/sec to speed</string>
+    <string name="pepe_3" translatable="false">Normis</string>
+    <string name="pepe_3_desc">It does fine - it will be fine</string>
 
-    <string name="pepe_4">Overage pepe</string>
-    <string name="pepe_4_desc">Adds 5 bitcoins/sec to speed</string>
+    <string name="pepe_4" translatable="false">Overage pepe</string>
+    <string name="pepe_4_desc">Right now, how will it destroy everything here</string>
 
-    <string name="pepe_5">Cool pepe</string>
-    <string name="pepe_5_desc">Adds 5 bitcoins/sec to speed</string>
+    <string name="pepe_5" translatable="false">Cool pepe</string>
+    <string name="pepe_5_desc">Too cool for comments</string>
 
-    <string name="drill_1">Standart drill</string>
-    <string name="drill_1_desc">It\'s default drill</string>
+    <string name="drill_1" translatable="false">Standart drill</string>
+    <string name="drill_1_desc" translatable="false">It\'s default drill</string>
 
-    <string name="drill_2">Jackhammer</string>
-    <string name="drill_2_desc">Increases speed by 5 times</string>
+    <string name="drill_2" translatable="false">Jackhammer</string>
+    <string name="drill_2_desc">Replace your old drill with this one to mine even more</string>
 
-    <string name="drill_3">Overage jackhammer</string>
-    <string name="drill_3_desc">Increases speed by 5 times</string>
+    <string name="drill_3" translatable="false">Jackhammer TURBO</string>
+    <string name="drill_3_desc">Dude, you seem to have completed this game</string>
 
-    <string name="gucci_title">Gucci flip flop</string>
-    <string name="gucci_desc">Increases speed by 5 times</string>
-    <string name="spidy_title">Spidy</string>
-    <string name="spidy_desc">...</string>
-    <string name="shrek_title">Shrek</string>
-    <string name="shrek_desc">...</string>
-    <string name="doge_title">Doge</string>
-    <string name="doge_desc">...</string>
+    <string name="gucci_title" translatable="false">Gucci flip flop</string>
+    <string name="gucci_desc">Bitcoins will fall at your feet on their own</string>
+
+    <string name="spidy_title" translatable="false">Spidy</string>
+    <string name="spidy_desc">Will make sure that no bitcoin gets to enemies</string>
+
+    <string name="shrek_title" translatable="false">Shrek</string>
+
+    <string name="shrek_desc">Shrek is love…</string>
+    <string name="doge_title" translatable="false">Doge</string>
+
+    <string name="doge_desc">Good old dog never hurts</string>
+
+    <string name="title_dialog">Hi!✌️</string>
+    <string name="description_dialog">\n\nHere you can try yourself as a bitcoin exchange player.
+         \n\nCheck the course, sell or buy bitcoins, and exchange them to memes that will increase your speed!\n\nGood luck!</string>
 </resources>

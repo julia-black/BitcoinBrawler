@@ -7,6 +7,7 @@ object Const {
     const val PREF_VELOCITY = "pref_velocity"
     const val PREF_PRODUCT_IDS = "pref_product_ids"
     const val PREF_PRICES = "pref_prices"
+    const val PREF_SHOW_INFO = "pref_show_info"
 
     const val RANGE_MIN_POSITIVE = 0.03
     const val RANGE_MAX_POSITIVE = 0.07

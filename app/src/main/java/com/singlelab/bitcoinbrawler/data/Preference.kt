@@ -42,6 +42,13 @@ class Preference(private val sharedPreferences: SharedPreferences) {
                 it.toFloat()
             }
 
+    fun isShowedInfoDialog(): Boolean =
+        sharedPreferences.getBoolean(Const.PREF_SHOW_INFO, false)
+
+    fun setShowedInfoDialog(isShowed: Boolean) {
+        sharedPreferences.edit().putBoolean(Const.PREF_SHOW_INFO, isShowed).commit()
+    }
+
     private fun getProducts(productIds: String): List<Product> {
         return productIds.split(",").mapNotNull {
             Log.d("123LOG", "product = $it")

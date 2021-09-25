@@ -1,6 +1,7 @@
 package com.singlelab.bitcoinbrawler
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
@@ -54,6 +55,20 @@ class MainActivity : AppCompatActivity() {
         runTimerForStock()
 
         observeLiveData()
+
+        if (!preference.isShowedInfoDialog()) {
+            showDialog()
+            preference.setShowedInfoDialog(true)
+        }
+    }
+
+    private fun showDialog() {
+        with(binding.dialog) {
+            visibility = View.VISIBLE
+            setDialogListener {
+                visibility = View.GONE
+            }
+        }
     }
 
     override fun onDestroy() {

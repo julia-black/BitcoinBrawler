@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">BitcoinBrawler</string>
+    <string name="title_home">Главная</string>
+    <string name="title_stock">Биржа</string>
+    <string name="title_store">Магазин</string>
+    <string name="enter_amount">Введи количество биткоинов</string>
+    <string name="buy_btc">Купить биток</string>
+    <string name="sell_btc">Продать биток</string>
+    <string name="amount_error">Введи корректное значение</string>
+    <string name="not_enough_btc">Не достаточно биткоинов</string>
+    <string name="not_enough_dollars">Не достаточно долларов</string>
+    <string name="success">Успех!</string>
+    <string name="price_btc">Цена BTC, $</string>
+    <string name="buy">Купить</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="pepe_2_desc">Больше хитрости - больше продуктивности!</string>
+    <string name="pepe_3_desc">Нормально делает - нормально будет.</string>
+    <string name="pepe_4_desc">Щас как разнесет тут всё</string>
+    <string name="pepe_5_desc">Слишком крут для комментариев</string>
+
+    <string name="drill_2_desc">Замени свою старую дрель на это, чтобы майнить еще больше</string>
+    <string name="drill_3_desc">Чел, кажется, ты прошёл эту игру</string>
+
+    <string name="monster_desc">Даёт энергии, чтобы зарабатывать еще больше</string>
+    <string name="shleppa_desc">Дай ему пару мятных пряников, и он наведет суету</string>
+    <string name="gucci_desc">Биткоины сами будут падать к твоим ногам</string>
+    <string name="spidy_desc">Будет следить, чтобы ни биткоина не досталось врагам</string>
+    <string name="shrek_desc">Шрек is love...</string>
+    <string name="doge_desc">Старый добрый пёс никогда не повредит</string>
+
+    <string name="title_dialog">Привет!✌️️</string>
+    <string name="description_dialog">В нашем приложении ты сможешь попробовать себя как игрок биржи биткоинов.
+        \n\nСледи за курсом, продавай или покупай биткоины, меняй их на мемы, которые увеличат твою скорость!\n\nУдачи! </string>
+</resources>
