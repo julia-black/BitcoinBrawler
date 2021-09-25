@@ -6,9 +6,9 @@ import com.singlelab.bitcoinbrawler.util.roundTo
 import kotlin.math.roundToInt
 
 data class User(
-    var amountBtc: Int,
+    var amountBtc: Float,
     var amountDollar: Float,
-    var velocity: Int,
+    var velocity: Float,
     var products: MutableList<Product> = mutableListOf()
 ) {
 
@@ -20,20 +20,20 @@ data class User(
         return this
     }
 
-    fun getAllVelocity(): Int {
+    fun getAllVelocity(): Float {
         var allVelocity = velocity
         products.forEach {
             if (it.velocityIncBoost != null) {
                 allVelocity += it.velocityIncBoost
             }
             if (it.velocityMultiplyBoost != null) {
-                allVelocity = (allVelocity * it.velocityMultiplyBoost).roundToInt()
+                allVelocity = (allVelocity * it.velocityMultiplyBoost).toFloat()
             }
         }
         return allVelocity
     }
 
-    fun buyBtc(amount: Int, price: Float): User {
+    fun buyBtc(amount: Float, price: Float): User {
         if (amountDollar >= amount * price) {
             amountDollar -= amount * price
             amountDollar = amountDollar.roundTo(2)
@@ -44,7 +44,7 @@ data class User(
         return this
     }
 
-    fun sellBtc(amount: Int, price: Float): User {
+    fun sellBtc(amount: Float, price: Float): User {
         if (amountBtc >= amount) {
             amountBtc -= amount
             amountDollar += amount * price

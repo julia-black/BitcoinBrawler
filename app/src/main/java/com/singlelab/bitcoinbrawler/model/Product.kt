@@ -10,7 +10,7 @@ enum class Product(
     val price: Int,
     val type: ProductType,
     val description: String,
-    val velocityIncBoost: Int? = null,
+    val velocityIncBoost: Float? = null,
     val velocityMultiplyBoost: Double? = null
 ) {
     PEPE_1(
@@ -19,39 +19,39 @@ enum class Product(
         0,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_1_desc),
-        0
+        0f
     ),
     PEPE_2(
         Const.PEPE_ID_2,
         Res.getStr(R.string.pepe_2),
-        200,
+        2000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_2_desc),
-        2
+        0.002f
     ),
     PEPE_3(
         Const.PEPE_ID_3,
         Res.getStr(R.string.pepe_3),
-        800,
+        4000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_3_desc),
-        4
+        0.008f
     ),
     PEPE_4(
         Const.PEPE_ID_4,
         Res.getStr(R.string.pepe_4),
-        1600,
+        100000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_4_desc),
-        8
+        0.016f
     ),
     PEPE_5(
         Const.PEPE_ID_5,
         Res.getStr(R.string.pepe_5),
-        10000,
+        20000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_5_desc),
-        16
+        0.1f
     ),
 
     DRILL_1(
@@ -85,7 +85,7 @@ enum class Product(
     MONSTER(
         Const.MONSTER_ID,
         Res.getStr(R.string.monster_title),
-        100,
+        800,
         ProductType.OTHER,
         Res.getStr(R.string.monster_desc),
         null,
@@ -95,7 +95,7 @@ enum class Product(
     SHLEPPA(
         Const.SHLEPPA_ID,
         Res.getStr(R.string.shleppa_title),
-        10000,
+        8000,
         ProductType.OTHER,
         Res.getStr(R.string.shleppa_desc),
         null,
@@ -105,7 +105,7 @@ enum class Product(
     GUCCI(
         Const.GUCCI_ID,
         Res.getStr(R.string.gucci_title),
-        500,
+        5000,
         ProductType.OTHER,
         Res.getStr(R.string.gucci_desc),
         null,
@@ -115,7 +115,7 @@ enum class Product(
     SPIDY(
         Const.SPIDY_ID,
         Res.getStr(R.string.spidy_title),
-        5000,
+        11000,
         ProductType.OTHER,
         Res.getStr(R.string.spidy_desc),
         null,
@@ -125,7 +125,7 @@ enum class Product(
     SHREK(
         Const.SHREK_ID,
         Res.getStr(R.string.shrek_title),
-        2000,
+        20000,
         ProductType.OTHER,
         Res.getStr(R.string.shrek_desc),
         null,

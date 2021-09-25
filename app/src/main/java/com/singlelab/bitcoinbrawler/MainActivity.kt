@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
     private fun observeLiveData() {
         userLiveData.observe(this, {
             with(binding) {
-                balanceBtc.text = it.amountBtc.toString()
+                balanceBtc.text = it.amountBtc.roundTo(3).toString()
                 balanceDollars.text = (it.amountDollar).roundTo(2).toString()
-                velocity.text = "${it.getAllVelocity()}/sec"
+                velocity.text = "${it.getAllVelocity().roundTo(3)}/sec"
                 preference.updateUserData(it)
             }
         })

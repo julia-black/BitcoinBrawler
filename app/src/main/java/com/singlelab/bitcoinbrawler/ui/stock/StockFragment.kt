@@ -126,7 +126,7 @@ class StockFragment : BaseFragment() {
         return (activity as MainActivity).pricesLiveData.value?.last()
     }
 
-    private fun showInfoAmount(view: TextView = binding.infoAmount, selectedAmount: Int = 1) {
+    private fun showInfoAmount(view: TextView = binding.infoAmount, selectedAmount: Float = 1f) {
         val price = getActualPrice()
         if (price != null) {
             view.text =
@@ -176,7 +176,7 @@ class StockFragment : BaseFragment() {
         }
     }
 
-    private fun getAmount(text: Editable): Int? {
+    private fun getAmount(text: Editable): Float? {
         try {
             return parseAmount(text)
         } catch (e: Exception) {
@@ -185,9 +185,9 @@ class StockFragment : BaseFragment() {
         return null
     }
 
-    private fun parseAmount(text: Editable?): Int {
+    private fun parseAmount(text: Editable?): Float {
         if (text.toString().isNotEmpty()) {
-            return text.toString().toInt()
+            return text.toString().replace(",", ".").toFloat()
         } else {
             throw Exception()
         }

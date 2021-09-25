@@ -28,7 +28,7 @@ class ProductsAdapter(
         val product = products[position]
         with(viewHolder) {
             nameTextView.text = product.title
-            priceTextView.text = product.price.toString()
+            priceTextView.text = "${product.price} $"
             descriptionTextView.text = product.description
             image.setImageDrawable(image.context.getDrawableByProduct(product))
             buyButton.setOnClickListener {
