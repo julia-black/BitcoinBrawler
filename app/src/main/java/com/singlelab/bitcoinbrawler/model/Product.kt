@@ -27,7 +27,7 @@ enum class Product(
         2000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_2_desc),
-        0.002f
+        0.05f
     ),
     PEPE_3(
         Const.PEPE_ID_3,
@@ -35,7 +35,7 @@ enum class Product(
         4000,
         ProductType.PEPE,
         Res.getStr(R.string.pepe_3_desc),
-        0.008f
+        0.1f
     ),
     PEPE_4(
         Const.PEPE_ID_4,
@@ -89,7 +89,7 @@ enum class Product(
         ProductType.OTHER,
         Res.getStr(R.string.monster_desc),
         null,
-        1.2
+        1.5
     ),
 
     SHLEPPA(
@@ -105,7 +105,7 @@ enum class Product(
     GUCCI(
         Const.GUCCI_ID,
         Res.getStr(R.string.gucci_title),
-        5000,
+        2000,
         ProductType.OTHER,
         Res.getStr(R.string.gucci_desc),
         null,
