@@ -5,9 +5,12 @@
       <map>
         <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/edit_text_dialog.xml" value="0.4" />
-        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/fragment_home.xml" value="0.144" />
+        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/edit_text_dialog.xml" value="0.1638418079096045" />
+        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/fragment_stock.xml" value="0.176" />
+        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/view_dialog.xml" value="0.2" />
+        <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/layout/view_item_product.xml" value="0.12360688956433637" />
         <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
         <entry key="..\:/Dev/AndroidStudioProjects/BitcoinBrawler/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2703125" />
       </map>

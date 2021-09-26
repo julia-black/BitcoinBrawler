@@ -148,7 +148,9 @@ class StockFragment : BaseFragment() {
     private fun setListeners() {
         with(binding) {
             buttonBuyBtc.setOnClickListener {
-                showDialogAmount {
+                val dollars = (activity as MainActivity).preference.getUserData().amountDollar
+                val price = (activity as MainActivity).preference.getPrices().last()
+                showDialogAmount(dollars / price) {
                     try {
                         stockViewModel.buyBtc(
                             getAmount(it),
@@ -161,7 +163,7 @@ class StockFragment : BaseFragment() {
                 }
             }
             buttonSellBtc.setOnClickListener {
-                showDialogAmount {
+                showDialogAmount((activity as MainActivity).preference.getUserData().amountBtc) {
                     try {
                         stockViewModel.sellBtc(
                             getAmount(it),
@@ -197,7 +199,7 @@ class StockFragment : BaseFragment() {
         showToast(getString(R.string.amount_error))
     }
 
-    private fun showDialogAmount(onOkClick: (Editable) -> Unit) {
+    private fun showDialogAmount(amount: Float?, onOkClick: (Editable) -> Unit) {
         context?.let { context ->
             val inflater = LayoutInflater.from(context)
             val view = inflater.inflate(R.layout.edit_text_dialog, null)
@@ -207,6 +209,9 @@ class StockFragment : BaseFragment() {
 
             val amountTextView = view.findViewById<TextView>(R.id.infoAmountInDialog)
             val userInput = view.findViewById<EditText>(R.id.editText).apply {
+                amount?.let {
+                    setText(amount.roundTo(2).toString())
+                }
                 addTextChangedListener {
                     try {
                         showInfoAmount(amountTextView, parseAmount(it))
