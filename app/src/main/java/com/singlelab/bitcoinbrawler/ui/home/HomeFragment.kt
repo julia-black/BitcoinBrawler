@@ -43,7 +43,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun observeUser() {
-        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, {
+        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner) {
             context?.apply {
                 it.getPepe()?.let {
                     Glide
@@ -70,10 +70,11 @@ class HomeFragment : BaseFragment() {
                             Product.SPIDY -> spidy.isVisible = true
                             Product.SHREK -> shrek.isVisible = true
                             Product.DOGE -> doge.isVisible = true
+                            else -> {}
                         }
                     }
                 }
             }
-        })
+        }
     }
 }

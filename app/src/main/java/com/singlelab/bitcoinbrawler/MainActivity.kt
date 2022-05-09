@@ -62,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        Res.setContext(null)
+        super.onDestroy()
+    }
+
     private fun showDialog() {
         with(binding.dialog) {
             visibility = View.VISIBLE
@@ -71,20 +76,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        Res.setContext(null)
-        super.onDestroy()
-    }
-
     private fun observeLiveData() {
-        userLiveData.observe(this, {
+        userLiveData.observe(this) {
             with(binding) {
                 balanceBtc.text = it.amountBtc.roundTo(3).toString()
                 balanceDollars.text = (it.amountDollar).roundTo(2).toString()
                 velocity.text = "${it.getAllVelocity().roundTo(3)}/sec"
                 preference.updateUserData(it)
             }
-        })
+        }
     }
 
     private fun runTimerForStock() {

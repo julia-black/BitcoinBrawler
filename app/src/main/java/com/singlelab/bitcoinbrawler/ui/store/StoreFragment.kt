@@ -42,7 +42,7 @@ class StoreFragment : BaseFragment() {
     }
 
     private fun observeUser() {
-        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner, { user ->
+        (activity as MainActivity).userLiveData.observe(viewLifecycleOwner) { user ->
             if (user.products.size != storeViewModel.getUserProducts()?.size ||
                 binding.recyclerView.adapter == null ||
                 user.amountDollar != storeViewModel.userDollars
@@ -52,7 +52,7 @@ class StoreFragment : BaseFragment() {
                 showLoading(false)
                 initList()
             }
-        })
+        }
     }
 
     private fun initList() {

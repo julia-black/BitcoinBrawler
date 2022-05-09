@@ -24,7 +24,6 @@ import com.singlelab.bitcoinbrawler.databinding.FragmentStockBinding
 import com.singlelab.bitcoinbrawler.model.exception.BuyingException
 import com.singlelab.bitcoinbrawler.ui.base.BaseFragment
 import com.singlelab.bitcoinbrawler.util.roundTo
-import java.util.*
 
 class StockFragment : BaseFragment() {
 
@@ -92,7 +91,7 @@ class StockFragment : BaseFragment() {
     }
 
     private fun observeViewModel() {
-        (activity as MainActivity).pricesLiveData.observe(viewLifecycleOwner, {
+        (activity as MainActivity).pricesLiveData.observe(viewLifecycleOwner) {
             var prices = ""
             it.forEach { price ->
                 prices = "$prices $price"
@@ -105,21 +104,21 @@ class StockFragment : BaseFragment() {
             initChart()
             setData(entries)
             showInfoAmount()
-        })
+        }
 
-        (activity as MainActivity).isPositiveTrendLiveData.observe(viewLifecycleOwner, {
+        (activity as MainActivity).isPositiveTrendLiveData.observe(viewLifecycleOwner) {
             updateArrow(it)
-        })
+        }
 
-        stockViewModel.userLiveData.observe(viewLifecycleOwner, {
+        stockViewModel.userLiveData.observe(viewLifecycleOwner) {
             with(activity as MainActivity) {
-                if (it != null) {
+                it?.let {
                     preference.updateUserData(it)
                     userLiveData.value = it
                     showToast(getString(R.string.success))
                 }
             }
-        })
+        }
     }
 
     private fun getActualPrice(): Float? {

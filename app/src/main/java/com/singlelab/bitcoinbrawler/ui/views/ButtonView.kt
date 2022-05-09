@@ -33,11 +33,6 @@ class ButtonView : FrameLayout {
         customInit(context)
     }
 
-    override fun setEnabled(enabled: Boolean) {
-        super.setEnabled(enabled)
-        layout?.setBackgroundResource(if (enabled) R.mipmap.button_active else R.mipmap.button_inactive)
-    }
-
     init {
         setOnTouchListener { _, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
@@ -47,6 +42,11 @@ class ButtonView : FrameLayout {
             }
             return@setOnTouchListener false
         }
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        layout?.setBackgroundResource(if (enabled) R.mipmap.button_active else R.mipmap.button_inactive)
     }
 
     private fun customInit(ctx: Context) {
